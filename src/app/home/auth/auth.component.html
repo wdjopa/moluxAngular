@@ -1,0 +1,40 @@
+<div class="cover"></div>
+<div class="corps">
+
+  <header>
+    MOLUX
+  </header>
+
+  <div class="line l-2">
+    Bienvenue
+  </div>
+
+  <div class="line l-3">
+    Vous souhaitez jouer ?
+  </div>
+
+  <div class="form">
+    <form (ngSubmit)="OnSubmit(f)" #f="ngForm">
+      <div class="inputs">
+        <input type="text" class="form-control" id="inlineFormInputName" value="{{ contact.nom }}"
+          placeholder="Pseudonyme" name="nom" ngModel>
+        <input type="tel" class="form-control" id="inlineFormInputGrouptel" value="{{ contact.numero }}"
+          placeholder="Téléphone (avec indicatif)" name="numero" ngModel required>
+      </div>
+      <div class="btns">
+        <button type="submit" class="btn btn-primary" [disabled]="f.invalid">CONTINUER</button>
+      </div>
+      <div class="form-row">
+        <div class="alert alert-success" *ngIf="connexion" role="alert">
+          Connexion réussie !
+        </div>
+        <div class="alert alert-success" *ngIf="inscription" role="alert">
+          Inscription réussie !
+        </div>
+        <div class="alert alert-danger" *ngIf="erreur" role="alert">
+          Pseudonyme / Numero de tel déjà utilisé !
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
